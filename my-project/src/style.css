@@ -1,1 +1,19 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+  font-family: 'Netflixnormal';
+  src: url('/assets/NetflixSans-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@theme {
+  --font-netflix: "Netflixnormal", sans-serif;
+  --font-bebas: 'Bebas Neue', sans-serif;
+}
+
+
