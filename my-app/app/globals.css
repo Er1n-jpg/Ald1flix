@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: 'Netflixnormal';
-  src: url('/assets/NetflixSans-Regular.otf') format('otf');
+  src: url('/NetflixSans-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
