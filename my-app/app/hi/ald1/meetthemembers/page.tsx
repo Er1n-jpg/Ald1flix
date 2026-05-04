@@ -10,11 +10,32 @@ export default function meetmem() {
   const [mounted, setMounted] = useState(false)
 
   return (
-    <main className = " flex flex-col bg-black font-netflix h-screen items-center justify-center"> 
-        <div className = " flex-row"></div>
-          <Image src  = "/PO1.png" alt = "sangwon" width = {300} height = {400}></Image>
-          <div className = "flex-col"></div>
-          <Image src = "/PO2.png" alt = "anxin" width = {10} height = {20}></Image>
+    <main className = " flex flex-col bg-black font-netflix h-screen items-center justify-center">
+    <Link href = "/hi">
+    <Image src = "/home.png" alt = "home" height={50} width = {50} className = "absolute top-4 right-4"></Image>
+    </Link>
+
+    <h1 className = "absolute top-4 left-4 text-white font-netflix text-6xl "> Meet the members</h1>
+        <div className = " flex flex-row mb-20 gap-5 ">
+          <Image src  = "/PO1.png" alt = "sangwon" width = {250} height = {350} className = "hover:scale-110 duration-300"></Image>
+          <div className = "flex flex-col "></div>
+        <Image src = "/PO2.png" alt = "anxin" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
+          <div className = "flex flex-col"></div>
+        <Image src = "/PO3.png" alt = "xinlong" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
+          <div className = "flex flex-col"></div>
+        <Image src = "/PO4.png" alt = "geonwoo" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
+          <div className = "flex flex-col"></div>
+      </div>
+      <div className = "flex flex-row gap-5 -ml-6">
+        <Image src = "/PO5.png" alt = "arno" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
+          <div className = "flex flex-col"></div>
+        <Image src = "/PO6.png" alt = "LEOOOOO <3" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
+          <div className = "flex flex-col"></div>
+        <Image src = "/PO7.png" alt = "Sanghyeon" width= {300} height = {350} className = "hover:scale-110 duration-300"></Image>
+          <div className = "flex flex-col"></div>
+        <Image src = "/PO8.png" alt = "junseo" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image> 
+          <div className = "flex flex-col"></div>
+      </div>
     </main>
   )
 
