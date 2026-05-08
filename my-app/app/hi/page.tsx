@@ -20,7 +20,7 @@ export default function HomeClient() {
         Who's watching?
       </h1>
       <div className="flex flex-row gap-30 justify-center items-center">
-      <Link href = "/hi/mainpage">
+      <Link href = "/inprogress">
         <div className = "flex flex-col hover:scale-110 duration-300">
           <Image src="/allyz.png" alt="description" width={300} height={300}></Image>
           <h5 className = "font-netflix text-white text-center text-4xl mt-4">Allyz</h5>
@@ -33,7 +33,7 @@ export default function HomeClient() {
         </div>
       </Link>
 
-      <Link href = "/hi/ald1flixq">
+      <Link href = "/inprogress">
         <div className = "flex flex-col hover:scale-110 duration-300 ">
           <Image src = "/ald1flix.png" alt = "ALD1FLIX" width = {300} height = {300}></Image>
             <h5 className = "font-netflix text-white text-center text-4xl mt-4">ALD1FLIX</h5>

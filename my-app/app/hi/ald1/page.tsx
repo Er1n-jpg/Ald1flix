@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image';
 
 
+
 export default function aboutaldq() {
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
@@ -22,19 +23,26 @@ export default function aboutaldq() {
           <h1 className = "font-netflix text-4xl mt-5">Meet the members</h1>
         </div>
       </Link>
+
+      <Link href = "/inprogress">
         <div className = "flex-collum hover:scale-110 duration-300">
           <Image src = "/discography.png" alt = "Discography" width = {300} height = {300}></Image>
-          <h1 className = "font-netflix text-4xl mt-5">Discography</h1>
+          <h1 className = "font-netflix text-4xl mt-5 ">Discography</h1>
         </div>
+        </Link>
 
+      <Link href = "/inprogress">
         <div className = "flex-collum hover:scale-110 duration-300">
           <Image src = "/SNS.png" alt = "SNS" width = {300} height = {300}></Image>
           <h1 className = "font-netflix text-4xl mt-5">SNS</h1>
-        </div>
+        </div>      
+      </Link>
       </div>
 
-    </main>
+      </main>
   )
+
+  
 }
 
 

@@ -18,7 +18,7 @@ export default function meetmem(){
 
 
   return (
-    <main className = " flex flex-col bg-black font-netflix h-screen items-center justify-center">
+    <main className = "flex flex-col bg-black font-netflix h-screen items-center justify-center">
     <Link href = "/hi">
     <Image src = "/home.png" alt = "home" height={50} width = {50} className = "absolute top-4 right-4"></Image>
     </Link>
@@ -68,7 +68,6 @@ export default function meetmem(){
             </div>
   </div>
 </div>
-    
       <div className = "flex flex-row gap-5 -ml-6">
         <Image src = "/PO5.png" alt = "arno" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
           <div className = "flex flex-col"></div>
