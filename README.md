@@ -20,7 +20,7 @@ The only option that works right now is "Alpha Drive One", if you click any othe
 <img width="1889" height="885" alt="image" src="https://github.com/user-attachments/assets/1a8f2d65-b19d-42e7-becb-98d2e72240f7" />
 
 Clicking the "Alpha Drive One" option will redirect you to yet another page with 3 options, the only option that works right now is meet the members
-<img width="1889" height="885" alt="image" src="https://github.com/user-attachments/assets/ba15cc61-f048-48e7-b308-d071013e2c41" />
+<img width="1889" height="926" alt="image" src="https://github.com/user-attachments/assets/efa65f80-2150-49ce-9499-98ea45bcb12e" />
 
 The final redirect goes to a page where you're introduced to the 8 members of the group when you click on their image, their profile will expand. 
 <img width="1824" height="900" alt="image" src="https://github.com/user-attachments/assets/bf6cee27-3d3a-412d-82d0-d5e8db9be6fa" />
