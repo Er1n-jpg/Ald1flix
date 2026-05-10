@@ -32,7 +32,7 @@ export default function HomeClient() {
           <h5 className = "font-netflix text-white text-center text-4xl mt-4">Alpha Drive One</h5>
         </div>
       </Link>
-
+      
       <Link href = "/inprogress">
         <div className = "flex flex-col hover:scale-110 duration-300 ">
           <Image src = "/ald1flix.png" alt = "ALD1FLIX" width = {300} height = {300}></Image>

@@ -10,9 +10,15 @@ export default function meetmem(){
   const [mounted, setMounted] = useState(false)
   const [expanded, setExpanded] = useState(false)
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+  const[expandedIndexBottom, setExpandedIndexBottom] = useState<number| null>(null)
 
   const handleClick = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index)
+
+}
+
+const handleClickBottom = (index: number) => {
+  setExpandedIndexBottom(expandedIndexBottom == index ? null : index)
 }
 
 
@@ -69,16 +75,45 @@ export default function meetmem(){
   </div>
 </div>
       <div className = "flex flex-row gap-5 -ml-6">
-        <Image src = "/PO5.png" alt = "arno" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
-          <div className = "flex flex-col"></div>
-        <Image src = "/PO6.png" alt = "LEOOOOO <3" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image>
-          <div className = "flex flex-col"></div>
-        <Image src = "/PO7.png" alt = "Sanghyeon" width= {300} height = {350} className = "hover:scale-110 duration-300"></Image>
-          <div className = "flex flex-col"></div>
+        <div className={`flex items-center transition-all duration-500 ${expandedIndexBottom !== null && expandedIndexBottom !== 0 ? 'hidden' : 'flex'}`}>
+        <Image src = "/PO5.png" alt = "arno" width = {expandedIndexBottom === 0 ? 310 : 310} height = {350} className = "hover:scale-110 duration-300" onClick = {() => handleClickBottom(0)}></Image>
+        <div className = {`overflow-hidden bg-orange-50 transition-all duration-500 rounded-xl ${expandedIndexBottom === 0 ? 'w-250 p-5 h-60' : 'w-0 h-60'}`}>
+          <h1 className = "text-5xl">  Zhang Jiahao (张家豪)(장가호) </h1>
+          <div className = "flex justify-between text-xl mt-2">
+            <span> Stage Name: Arno</span>
+            <span className = "mr-30">Nationality: Chinese </span>
+          </div>
+            <p className = "text-xl">Birthday:July 7, 2002 <br/>Height: 178cm <br/>MBTI: ISTJ <br/>Position: Main Dancer</p>
+        </div>
+      </div>
+
+        <div className={`flex items-center transition-all duration-500 ${expandedIndexBottom !== null && expandedIndexBottom !== 1 ? 'hidden' : 'flex'}`}>
+        <Image src = "/PO6.png" alt = "Leo" width = {expandedIndexBottom === 0 ? 310 : 310} height = {350} className = "hover:scale-110 duration-300" onClick = {() => handleClickBottom(1)}></Image>
+        <div className = {`overflow-hidden bg-orange-50 transition-all duration-500 rounded-xl ${expandedIndexBottom === 1 ? 'w-250 p-5 h-60' : 'w-0 h-60'}`}>
+          <h1 className = "text-5xl">  Lee Leo (이리오) </h1>
+          <div className = "flex justify-between text-xl mt-2">
+            <span> Stage Name: Leo</span>
+            <span className = "mr-30">Nationality: Korean/Australian</span>
+          </div>
+            <p className = "text-xl">Birthday:August 22, 2002 <br/>Height: 179cm <br/>MBTI: INTP <br/>Position: Leader, Main Vocalist</p>
+        </div>
+      </div>
+
+        <div className={`flex items-center transition-all duration-500 ${expandedIndexBottom !== null && expandedIndexBottom !== 1 ? 'hidden' : 'flex'}`}>
+        <Image src = "/PO7.png" alt = "Sanghyeon" width = {expandedIndexBottom === 0 ? 310 : 310} height = {350} className = "hover:scale-110 duration-300" onClick = {() => handleClickBottom(1)}></Image>
+        <div className = {`overflow-hidden bg-orange-50 transition-all duration-500 rounded-xl ${expandedIndexBottom === 1 ? 'w-250 p-5 h-60' : 'w-0 h-60'}`}>
+          <h1 className = "text-5xl">  Lee Leo (이리오) </h1>
+          <div className = "flex justify-between text-xl mt-2">
+            <span> Stage Name: Leo</span>
+            <span className = "mr-30">Nationality: Korean/Australian</span>
+          </div>
+            <p className = "text-xl">Birthday:August 22, 2002 <br/>Height: 179cm <br/>MBTI: INTP <br/>Position: Leader, Main Vocalist</p>
+        </div>
+      </div>
+
         <Image src = "/PO8.png" alt = "junseo" width = {300} height = {350} className = "hover:scale-110 duration-300"></Image> 
           <div className = "flex flex-col"></div>
       </div>
     </main>
   )
-
 }
