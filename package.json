@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Er1n-jpg/Ald1flix/issues"
   },
-  "homepage": "https://github.com/Er1n-jpg/Ald1flix#readme"
+  "homepage": "https://github.com/Er1n-jpg/Ald1flix#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.107.0"
+  }
 }

@@ -13,9 +13,14 @@ export default function discography(){
         <Link href = "/hi">
             <Image src = "/home.png" alt = "home" height={50} width = {50} className = "absolute top-4 right-4"></Image>
         </Link>
+            <div className = "flex flex-row items-cemter">
+            <button className = " flex " >
+                <Image src = "/home.png" alt = "button" height ={100} width = {100}></Image>
+                <span> hi</span>
+            </button>
         <Image src = "/euphoria.png" alt = "euphoria" height = {400} width = {400}></Image>
         <div className = " bg-[linear-gradient(to_bottom,#726D6D_27%,#0C0C0C_100%)] z-1 min-h-130 min-w-250 border-white border-2 hidden"> 
-
+            </div>
         </div>
     </main>
     )

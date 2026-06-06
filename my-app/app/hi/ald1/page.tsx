@@ -25,7 +25,7 @@ export default function aboutaldq() {
         </div>
       </Link>
 
-      <Link href = "/inprogress">
+      <Link href = "/hi/ald1/discography">
         <div className = "flex-collum hover:scale-110 duration-300">
           <Image src = "/discography.png" alt = "Discography" width = {300} height = {300}></Image>
           <h1 className = "font-netflix text-4xl mt-5 ">Discography</h1>

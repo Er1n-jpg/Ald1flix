@@ -33,7 +33,7 @@ export default function HomeClient() {
         </div>
       </Link>
       
-      <Link href = "/inprogress">
+      <Link href = "/hi/ald1flixq">
         <div className = "flex flex-col hover:scale-110 duration-300 ">
           <Image src = "/ald1flix.png" alt = "ALD1FLIX" width = {300} height = {300}></Image>
             <h5 className = "font-netflix text-white text-center text-4xl mt-4">ALD1FLIX</h5>
