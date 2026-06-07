@@ -17,6 +17,7 @@ export default function discography(){
         <div className = " bg-[linear-gradient(to_bottom,#726D6D_27%,#0C0C0C_100%)] z-1 min-h-130 min-w-250 border-white border-2 hidden"> 
 
         </div>
+        
     </main>
     )
 }

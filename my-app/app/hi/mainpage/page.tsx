@@ -126,11 +126,10 @@ export default function MainPage() {
   return (
     <div className = "h-screen bg-black flex flex-col overflow-y-auto overflow-x-hidden">
       <h1 className = "font-netflix text-3xl text-white p-6"></h1>
-      {/* Each row gets its own category array */}
       <Irows items={varietyItems} label="Variety" />
       <Irows items={tvItems} label="TV" />
-      <Irows items={liveItems} label="Live" />
-      <Irows items={moreItems} label="More" />
+      <Irows items = {liveItems} label = "live" />
+      <Irows items = {moreItems} label= "more" />
     </div>
-  );
-}
+    );
+  }
