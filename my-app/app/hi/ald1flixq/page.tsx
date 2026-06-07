@@ -11,7 +11,7 @@ export default function aboutald1flix() {
       <div className=" flex max-h-30 bg-white min-h-120 min-w-250 rounded-sm text-center flex-row justify-center items-center gap-20">
         <div className = "flex flex-col font-netflix text-left">
         <h1 className="text-7xl font-bebas"> About Ald1flix </h1>
-        <p> Hi, I'm Koi! A 16 year old allyz based in canada and the developer behind Ald1flix</p>
+        <p> Hi, I'm Koi! A 16 year old allyz based in Canada and the developer behind Ald1flix</p>
         <p className = "mt-5"> I'm currently looking for people who would be willing to update the site!</p>
         <p> 
           click 
