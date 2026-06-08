@@ -1,6 +1,5 @@
 'use client'
 
-// 1. Use Next.js navigation, NOT react-router-dom
 import Link from 'next/link' 
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'

@@ -16,7 +16,7 @@ export default function meetmem() {
     setExpandedIndex(expandedIndex === index ? null : index)
 
   }
-
+// i am big
   const handleClickBottom = (index: number) => {
     setExpandedIndexBottom(expandedIndexBottom == index ? null : index)
   }
