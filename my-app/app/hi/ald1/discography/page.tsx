@@ -20,7 +20,7 @@ const songDisplay = [
         spotifyURL: "https://open.spotify.com/track/44V5j1NOwRWBV8krmLnr4J",
         appleURL: "https://music.apple.com/ca/song/freak-alarm/1863635187",
         ytmusicURL: "https://www.youtube.com/watch?v=P8VVnopM610",
-        bgGradient: "bg-[linear-gradient(to_bottom,%#454545_0% ,#FFFFF_100%)]"
+        bgGradient: "bg-[linear-gradient(to_bottom,#454545_0%,#FFFFFF_100%)]"
     },{
         title: "No School Tommorow",
         caption: "1st single album",
@@ -32,7 +32,7 @@ const songDisplay = [
         spotifyURL: "https://open.spotify.com/album/6nRIRE0BPMRd2lrixYYXjN",
         appleURL: "https://music.apple.com/us/album/no-school-tomorrow-single/6772011177",
         ytmusicURL: "https://music.youtube.com/playlist?list=OLAK5uy_lVJR2EnMXvaNzVCCc2puoFTGvC_BVNpI0",
-        bgGradient: "bg-[linear-gradient(to_bottom,%#609DC8_0%, #FFFFFF_100% )]",
+        bgGradient: "bg-[linear-gradient(to_bottom,#609DC8_0%,#FFFFFF_100%)]",
     }
 ]
 
@@ -43,32 +43,34 @@ function DisplayItem({ title, caption, img, songs, spotifyURL, appleURL, ytmusic
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <div
-            className={`flex items-center overflow-hidden cursor-pointer transition-all bg-white duration-600 text-white ${isOpen ? "w-[900px] h-[500px]" : "w-90"} ${bgGradient}`}
-            onClick={() => setIsOpen(!isOpen)}
-        >
-            <img src={img} className="h-80 w-80 object-cover flex-shrink-0" />
+    <div
+        className={`relative flex items-center overflow-hidden cursor-pointer transition-all border-white border-2 duration-600 text-white ${isOpen ? "w-[900px] h-[500px]" : "w-90"}`}
+        onClick={() => setIsOpen(!isOpen)}
+    >
+    <div className={`absolute inset-0 opacity-67 ${bgGradient}`} />
+    
+    <img src={img} className="relative z-1 h-80 w-80 object-cover flex-shrink-0 ml-5" />
 
-            <div className={`flex flex-row ml-5 transition-all duration-500 whitespace-nowrap ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}>
+    <div className={`relative z-10 flex flex-row transition-all align-between gap-25 duration-500 ml-5 whitespace-nowrap ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}>
                 <div>
-                <h1 className="text-6xl mb-1">{title}</h1>
-                <p className="mb-2">{caption}</p>
-                <h4 className="font-bold">Track List</h4>
-                <ul className="mb-3">
+                <h1 className={`text-6xl mb-1 whitespace-normal break-words ${title.length > 12 ? "max-w-85" : "whitespace-nowrap"}`}>{title}</h1>
+                <h2 className="mb-2 text-3xl">{caption}</h2>
+                <h4 className="font-bold text-2xl">Track List</h4>
+                <ul className="mb-3 text-xl ml-1">
                     {songs.map((song, index) => (
                         <li key={index}>{song}</li>
                     ))}
                 </ul>
                 </div>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-9">
                     <a href={spotifyURL} onClick={e => e.stopPropagation()}>
-                        <img src="/spotify.png" className="h-8 w-8 hover:scale-110 transition-transform" />
+                        <img src="/spotify.png" className="h-15 w-15 hover:scale-110 transition-transform" />
                     </a>
                     <a href={appleURL} onClick={e => e.stopPropagation()}>
-                        <img src="/applemusic.png" className="h-8 w-8 hover:scale-110 transition-transform" />
+                        <img src="/applemusic.png" className="h-15 w-15 hover:scale-110 transition-transform" />
                     </a>
                     <a href={ytmusicURL} onClick={e => e.stopPropagation()}>
-                        <img src="/ytmusic.png" className="h-8 w-8 hover:scale-110 transition-transform" />
+                        <img src="/ytmusic.png" className="h-15 w-15 hover:scale-110 transition-transform" />
                     </a>
                 </div>
             </div>
@@ -80,6 +82,8 @@ export default function discography(){
     const router = useRouter()
     const [mounted, setMounted] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [animationing, setAnimationing] = useState(false)
+    const [direction, setDirection] = useState <'left' | 'right'>('right')
     const [currentIndex, setCurrentIndex] = useState(0)
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
     const handleClick = (index: number) => {
@@ -87,7 +91,13 @@ export default function discography(){
 }
 
     const handleLeft = () => {
+        if (animationing) return
+        setDirection('left')
+        setAnimationing(true)
+        setTimeout(() => {
         setCurrentIndex(prev => (prev - 1 + songDisplay.length) % songDisplay.length)
+        setAnimationing(false)
+        }, 300)
     }
 
     const handleRight = () => {
