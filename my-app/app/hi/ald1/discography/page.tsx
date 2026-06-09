@@ -41,17 +41,27 @@ function DisplayItem({ title, caption, img, songs, spotifyURL, appleURL, ytmusic
     spotifyURL: string, appleURL: string, ytmusicURL: string, bgGradient: string,
 }) {
     const [isOpen, setIsOpen] = useState(false)
-
+    const [isContentVisible, setIsContentVisible] = useState(false)
+    
+        const handleToggle = () => {
+    if (isOpen) {
+        setIsContentVisible(false)
+        setTimeout(() => setIsOpen(false), 300) 
+    } else {
+        setIsOpen(true)
+        setTimeout(() => setIsContentVisible(true), 500)  
+    }
+}
     return (
     <div
-        className={`relative flex items-center overflow-hidden cursor-pointer transition-all border-white border-2 duration-600 text-white ${isOpen ? "w-[900px] h-[500px]" : "w-90"}`}
-        onClick={() => setIsOpen(!isOpen)}
+        className={`relative flex items-center overflow-hidden cursor-pointer transition-all border-white border-2 duration-500 text-white ${isOpen ? "w-[900px] h-[500px]" : "w-80 h-80"}`}
+        onClick={handleToggle}
     >
     <div className={`absolute inset-0 opacity-67 ${bgGradient}`} />
     
-    <img src={img} className="relative z-1 h-80 w-80 object-cover flex-shrink-0 ml-5" />
+    <img src={img} className={`relative z-1 object-cover flex-shrink-0 transition-all duration-300 ${isOpen ? "h-80 w-80 ml-5" : "h-80 w-80"}`} />
 
-    <div className={`relative z-10 flex flex-row transition-all align-between gap-25 duration-500 ml-5 whitespace-nowrap ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}>
+    <div className={`relative z-10 flex flex-row transition-all align-between gap-25 duration-500 ml-5 whitespace-nowrap ${isContentVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}>
                 <div>
                 <h1 className={`text-6xl mb-1 whitespace-normal break-words ${title.length > 12 ? "max-w-85" : "whitespace-nowrap"}`}>{title}</h1>
                 <h2 className="mb-2 text-3xl">{caption}</h2>
@@ -80,43 +90,60 @@ function DisplayItem({ title, caption, img, songs, spotifyURL, appleURL, ytmusic
 
 export default function discography(){
     const router = useRouter()
-    const [mounted, setMounted] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [animationing, setAnimationing] = useState(false)
     const [direction, setDirection] = useState <'left' | 'right'>('right')
     const [currentIndex, setCurrentIndex] = useState(0)
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+
+    
     const handleClick = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index)
 }
+
 
     const handleLeft = () => {
         if (animationing) return
         setDirection('left')
         setAnimationing(true)
         setTimeout(() => {
-        setCurrentIndex(prev => (prev - 1 + songDisplay.length) % songDisplay.length)
-        setAnimationing(false)
+            setCurrentIndex(prev => (prev - 1 + songDisplay.length) % songDisplay.length)
+            setAnimationing(false)
         }, 300)
     }
 
     const handleRight = () => {
-        setCurrentIndex(prev => (prev + 1) % songDisplay.length)
+        if (animationing) return
+        setDirection('right')
+        setAnimationing(true)
+        setTimeout(() => {
+            setCurrentIndex(prev => (prev + 1) % songDisplay.length) 
+            setAnimationing(false)           
+        }, 300)
+
     }
 
 return (
-    <main className="h-screen items-center justify-center flex flex-col font-netflix bg-[linear-gradient(to_bottom,#0C0C0C_37%,#3D3D3D_100%)]">
+    <main className="h-screen items-center justify-center flex flex-col font-netflix bg-[linear-gradient(to_bottom,#0C0C0C_37%,#3D3D3D_100%)] overflow-hidden">
         <h2 className="absolute top-6 left-6 text-white text-7xl">Discography</h2>
         <Link href="/hi">
             <Image src="/home.png" alt="home" height={50} width={50} className="absolute top-4 right-4" />
         </Link>
 
-        <div className="flex flex-row items-center justify-center gap-15">
+        <div className="flex flex-row items-center justify-center gap-15 ">
             <button onClick={handleLeft}>
                 <Image src="/buttonleft.png" alt="button" className="w-20 h-20" height={100} width={200} />
             </button>
 
+            <div className = {`transition-all duration-300 overflow-hidden ${
+                animationing
+                ? direction === 'right'
+                    ? 'translate-x-20 opacity-0'
+                    : '-translate-x-20 opacity-0'
+                : '-translate-x-0 opacity-100'
+            }`}> 
             <DisplayItem key={currentIndex} {...songDisplay[currentIndex]} />
+            </div>
 
             <button onClick={handleRight}>
                 <Image src="/buttonright.png" alt="button" className="w-20 h-20" height={100} width={200} />
