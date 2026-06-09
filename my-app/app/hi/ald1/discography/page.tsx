@@ -24,7 +24,7 @@ const songDisplay = [
     },{
         title: "No School Tommorow",
         caption: "1st single album",
-        img: "",
+        img: "/omg.png",
         songs: [
             "OMG!",
             "Good Life"
@@ -36,88 +36,84 @@ const songDisplay = [
     }
 ]
 
-
-function DisplayItem({
-    title,
-    caption,
-    img,
-    songs,
-    spotifyURL,
-    appleURL,
-    ytmusicURL,
-    bgGradient,
-    }:{
-    title: string,
-    caption: string,
-    img: string,
-    songs: string[],
-    spotifyURL: string,
-    appleURL: string,
-    ytmusicURL: string,
-    bgGradient: string,
+function DisplayItem({ title, caption, img, songs, spotifyURL, appleURL, ytmusicURL, bgGradient }: {
+    title: string, caption: string, img: string, songs: string[],
+    spotifyURL: string, appleURL: string, ytmusicURL: string, bgGradient: string,
 }) {
     const [isOpen, setIsOpen] = useState(false)
-    return(
-        <div className = "flex justify-between align-center items-center gap-10 border-sm border-white ${bgGradient}" onClick = {() => setIsOpen(!isOpen)}>
-            <img src = {img}
-            className = {`h-48 w-48 object-cover flex-shrink-0 transition-all duration-500 ${isOpen ? "translate-x-0" : ""}`}></img> 
-            <div className = {`align-between flex flex-col ml-5 transition-all duration-500 whitespace-nowrap ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}>
+
+    return (
+        <div
+            className={`flex items-center overflow-hidden cursor-pointer transition-all bg-white duration-600 text-white ${isOpen ? "w-[900px] h-[500px]" : "w-90"} ${bgGradient}`}
+            onClick={() => setIsOpen(!isOpen)}
+        >
+            <img src={img} className="h-80 w-80 object-cover flex-shrink-0" />
+
+            <div className={`flex flex-row ml-5 transition-all duration-500 whitespace-nowrap ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}>
                 <div>
-                <h1 className = "mb-5">{title}</h1>
-                <p>{caption}</p>
-                <h4 className = "font-bold">Track List</h4>
-                <ul>
-                    {songDisplay.map((item, index) => (
-                        <DisplayItem key={index}{...item}/>
+                <h1 className="text-6xl mb-1">{title}</h1>
+                <p className="mb-2">{caption}</p>
+                <h4 className="font-bold">Track List</h4>
+                <ul className="mb-3">
+                    {songs.map((song, index) => (
+                        <li key={index}>{song}</li>
                     ))}
                 </ul>
+                </div>
+                <div className="flex flex-col gap-3">
+                    <a href={spotifyURL} onClick={e => e.stopPropagation()}>
+                        <img src="/spotify.png" className="h-8 w-8 hover:scale-110 transition-transform" />
+                    </a>
+                    <a href={appleURL} onClick={e => e.stopPropagation()}>
+                        <img src="/applemusic.png" className="h-8 w-8 hover:scale-110 transition-transform" />
+                    </a>
+                    <a href={ytmusicURL} onClick={e => e.stopPropagation()}>
+                        <img src="/ytmusic.png" className="h-8 w-8 hover:scale-110 transition-transform" />
+                    </a>
+                </div>
             </div>
-
-            <div className = "flex flex-col gap-3">
-                <img src = "/spotify.png" className = "h-12 w-12">
-                    <a href = {spotifyURL}></a>
-                </img>
-                <img src = "/applemusic.png" className = "h-12 w-12">
-                    <a href = {appleURL}></a>
-                </img>
-                <img src = "/ytmusic.png" className = "h-12 w-12">
-                    <a href = {ytmusicURL}></a>                
-                </img>
-            </div>
-        </div>
         </div>
     )
 }
-
 
 export default function discography(){
     const router = useRouter()
     const [mounted, setMounted] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [currentIndex, setCurrentIndex] = useState(0)
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
     const handleClick = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index)
 }
 
-    return(
-    <main className = "h-screen bg-black items-center justify-center flex flex-col font-netflix bg-[linear-gradient(to_bottom,#0C0C0C_37%,#3D3D3D_100%)] ">
-        <h2 className = "absolute top-6 left-6 text-white text-4xl">Discography</h2>
-        <Link href = "/hi">
-            <Image src = "/home.png" alt = "home" height={50} width = {50} className = "absolute top-4 right-4"></Image>
+    const handleLeft = () => {
+        setCurrentIndex(prev => (prev - 1 + songDisplay.length) % songDisplay.length)
+    }
+
+    const handleRight = () => {
+        setCurrentIndex(prev => (prev + 1) % songDisplay.length)
+    }
+
+return (
+    <main className="h-screen items-center justify-center flex flex-col font-netflix bg-[linear-gradient(to_bottom,#0C0C0C_37%,#3D3D3D_100%)]">
+        <h2 className="absolute top-6 left-6 text-white text-7xl">Discography</h2>
+        <Link href="/hi">
+            <Image src="/home.png" alt="home" height={50} width={50} className="absolute top-4 right-4" />
         </Link>
-            <div className = "flex flex-row items-center justify-center gap-15 -ml-5">
-            <button className = {`flex transition-all duration-500 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`} >
-                <Image src = "/buttonleft.png" alt = "button" height ={100} width = {200} className ="w-20 h-20"></Image>
+
+        <div className="flex flex-row items-center justify-center gap-15">
+            <button onClick={handleLeft}>
+                <Image src="/buttonleft.png" alt="button" className="w-20 h-20" height={100} width={200} />
             </button>
 
-        
-           
-         <div className = {`transition-all duration-500 overflow-hidden bg-white h-150 z-0 -ml-30 ${isOpen ? "opacity-100 w-300" : "opacity-0 w-0"}`}></div>
-        <button className =  {`flex transition-all duration-500 -ml-20 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
-            <Image src = "/buttonright.png" alt = "button" height = {100} width = {200} className = "w-20 h-20"></Image>
-        </button>
+            <DisplayItem key={currentIndex} {...songDisplay[currentIndex]} />
+
+            <button onClick={handleRight}>
+                <Image src="/buttonright.png" alt="button" className="w-20 h-20" height={100} width={200} />
+            </button>
         </div>
     </main>
-    )
+)
+    
 }
 
