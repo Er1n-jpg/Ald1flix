@@ -54,7 +54,7 @@ function DisplayItem({ title, caption, img, songs, spotifyURL, appleURL, ytmusic
 }
     return (
     <div
-        className={`relative flex items-center overflow-hidden cursor-pointer transition-all border-white border-2 duration-500 text-white ${isOpen ? "w-[900px] h-[500px]" : "w-80 h-80"}`}
+        className={`relative flex items-center overflow-hidden cursor-pointer transition-all border-white border-2 duration-500 text-white ${isOpen ? "w-[900px] h-[400px]" : "w-80 h-80"}`}
         onClick={handleToggle}
     >
     <div className={`absolute inset-0 opacity-67 ${bgGradient}`} />
