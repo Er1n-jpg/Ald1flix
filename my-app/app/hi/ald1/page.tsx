@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function aboutaldq() {
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
-
+  const [showSNS, setShowSNS] = useState(false)
 
   return (
     <main className = "bg-black min-h-screen font-netlfix flex-col flex text-white justify-center overflow-y-hidden">
@@ -32,14 +32,19 @@ export default function aboutaldq() {
         </div>
         </Link>
 
-      <Link href = "/inprogress">
-        <div className = "flex-collum hover:scale-110 duration-300">
-          <Image src = "/SNS.png" alt = "SNS" width = {300} height = {300}></Image>
-          <h1 className = "font-netflix text-4xl mt-5">SNS</h1>
-        </div>      
-      </Link>
-      </div>
+    {showSNS && (
+        <Link href="/hi/ald1/SNS">
+        <div className="flex-collum hover:scale-110 duration-300">
+        <Image src="/SNS.png" alt="SNS" width={300} height={300}></Image>
+        <h1 className="font-netflix text-4xl mt-5">SNS</h1>
+          </div>
+    </Link>
+    )}
 
+
+
+
+  </div>
       </main>
   )
 
