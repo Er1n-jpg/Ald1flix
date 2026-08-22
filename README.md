@@ -3,8 +3,7 @@
 This website is a catalogue of all things related to the kpop group Alpha Drive One, including their discography, variety show apperances and TV shows.
 Right now I only have the simple framework of it done and a section featuring all of the members! 
 
-If you click on any of the unfinished buttons, it will redirect you to a page saying... it's unfinished LOL which is basically every page except for one of them right now. 
-
+I made this to give back to my fandom and have a space on the internet where they can find content that would be extremely hard to find through regular google searches, I also made it so that people who are new to the group can learn more about the members, discography and find content they enjoy :D
 Project is mostly just a rando page on the internet so if you click on the vercel link it should work. 
 
 # Peep the website!
